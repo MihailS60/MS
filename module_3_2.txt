@@ -71,8 +71,3 @@ send_email('vasyok1337@gmail.com',message='Это сообщение для пр
 send_email('urban.student@mail.ru',message='Пожалуйста, исправьте задание',sender="urban.teacher@mail.ru")
 send_email('urban.fan@mail.ru',message='Вы видите это сообщение как лучший студент курса!',sender="urban.info@gmail.com")
 send_email(recipient_final,message='Нельзя отправить письмо самому себе!')
-
-
-
-
-
