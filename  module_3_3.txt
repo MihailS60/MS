@@ -1,0 +1,53 @@
+def print_params(a = 1, b = 'строка', c = True):
+    global args
+    args=(a,b,c)                  # создание кортежа их аргументов
+    print(a, b, c)
+
+args=tuple()
+
+print('использование функции print_params с заменой аргументов')
+print('вызов функции с аргументами по умолчанию :')
+print_params(a = 1, b = 'строка', c = True)         #  вызов функции с аргументами по умолчанию
+in_list=list(args)                                   # лист из кортежа args первых аргументов
+
+
+print('вызов функции без аргументов :')
+print_params()
+print('вызов функции с разным количеством аргументов :')
+print_params('первый аргумент','второй аргумент')
+print_params(False)
+print_params(c=False)
+print_params(a=34,b = '25')
+print_params(c = [1,2,3])
+print('_________________________','\n','все варианты функции с разным количеством аргументов УСПЕШНЫ !')
+
+print('\n','список первоначальных аргументов',in_list)
+print('задан список значений values_list')
+values_list=[12,['one','two'],False]            # задан список
+print(values_list)
+
+values_dict = {}                                         # создание словаря
+updated_args=list()                                    # список для создания словаря
+for i in range (len(args)):
+        updated_args.append([])
+        updated_args[i].append(in_list[i])
+        updated_args[i].append(values_list[i])
+        values_dict.update({updated_args[i][0]: updated_args[i][1]})
+
+print('список из ключей in_list и значениями values_list :', updated_args)
+print('словарь из двух элементов, т.к ключи 1=True:', values_dict)
+
+values_dict['1']=values_dict[1]             #замена ключа integer на str
+del values_dict[1]
+add_dict={**values_dict,'c':7}              # добавление 3-го элемента
+
+print('\n','Передайте values_list и values_dict в функцию print_params, используя распаковку параметров' )
+
+print_params(*values_list)         #  вызов функции с аргументами values_list
+print_params(values_dict)         #  вызов функции с аргументами values_dict
+
+print('\n','Создайте список values_list_2 с двумя элементами разных типов')
+
+values_list_2=[[100,20,30],('второй параметр','третий параметр')]
+print_params(*values_list_2,42)         #  вызов функции с аргументами values_list_2
+print_params(42,*values_list_2)       #  вызов функции с аргументами values_list_2
